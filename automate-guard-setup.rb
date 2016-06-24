@@ -62,17 +62,31 @@ def modify_spec_files
     # do work on files ending in .rb in the desired directory
     # p rb_file_s
     # p rb_file_s.class
+    # p spec_file_name_s
     spec_file_s = File.read(spec_file_name_s)
     if /require_relative '\.\.\/lib/.match(spec_file_s) == nil
-      spec_file_formatted = spec_file_s.gsub(/require_relative '\.\./, \
-        "require_relative '../lib")
+      re_single = /require_relative '\.\./
+      re_double = /require_relative "\.\./
+      # p re_single.match(spec_file_s)
+      # p re_double.match(spec_file_s)
+      # puts "match object evaluates to true" if re_double.match(spec_file_s)
+      if re_single.match(spec_file_s)
+        spec_file_formatted = spec_file_s.gsub(/require_relative '\.\./, \
+                                               "require_relative '../lib")
+      elsif re_double.match(spec_file_s)
+        spec_file_formatted = spec_file_s.gsub(/require_relative "\.\./, \
+                                               "require_relative \"../lib")
+      end
+
       spec_file_formatted = spec_file_formatted.gsub(/^describe/, \
                                                      "RSpec.describe")
-      File.open(spec_file_name_s, "w") { |file| file.puts spec_file_formatted }
+      File.open(spec_file_name_s, "w") do |file|
+        # p file
+        file.puts spec_file_formatted
+      end
     end
-
-    puts "modify_spec_files done..."
   end
+  puts "modify_spec_files done..."
 end
 
 # modify_spec_files
