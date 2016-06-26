@@ -16,7 +16,7 @@ def modify_gemfile
 
   vanilla_gemfile = <<-all_done
   source "http://rubygems.org"
-
+  ruby "2.3.1"
   gem 'rspec', '~> 3.2'
 
   # BEGIN added by guard-setup.rb
