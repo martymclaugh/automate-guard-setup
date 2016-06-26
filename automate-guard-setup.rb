@@ -4,6 +4,7 @@ def modify_gemfile
   append_to_gemfile = <<-all_done
 
   # BEGIN added by guard-setup.rb
+  ruby "2.3.1"
   group :development do
     gem 'guard'
     gem 'guard-rspec'
