@@ -6,8 +6,38 @@
 If you're interested you can check out each of these tools and read through the documentation to figure out how to set them up. It takes some effort and it's worth your time but...it's not that easy. Also, all we really want for now is a way to quickly get it to "just work". This is what `automate-guard-setup.rb` is all about.
 
 #### Installation for us
-Alright, we're going to have a great jump today, just:
+Alright, we're going to have a great jump today:
 
+###### Housekeeping
+* Check which version of ruby you're using, and which versions you have installed. Switch to using `ruby 2.3.1p112` globally if it's already installed. Otherwise install `ruby 2.3.1p112` with `rbenv install` (see below).
+
+```
+$ rbenv versions
+  system
+  2.1.1
+* 2.1.5 (set by /Users/max/.rbenv/version)
+  2.2.3
+```
+
+* Install `ruby 2.3.1p112`. Note: this could take about ten minutes
+
+```
+$ rbenv install 2.3.1
+```
+
+* Switch to using `ruby 2.3.1p112` globally
+
+```
+$ rbenv global 2.3.1 
+$ rbenv versions
+  system
+  2.1.1
+  2.1.5
+  2.2.3
+* 2.3.1 (set by /Users/max/.rbenv/version)
+```
+
+###### Getting the goods
 * Clone this repo onto your machine and pull as I update it. For example:
 
 ```
@@ -32,10 +62,11 @@ README.md               spec
 automate-guard-setup.rb
 ```
 
+###### Using the goods
 * Run `automate-guard-setup.rb`
 
 ```
-$ ruby automate-guard-setup.rb                                                                                               ✖ ✹ ✭
+$ ruby automate-guard-setup.rb                                                                                               
 Gemfile already modified!
 modify_gemfile done...
 move_ruby_files_into_lib done...
