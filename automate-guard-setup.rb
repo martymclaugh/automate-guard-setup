@@ -9,7 +9,6 @@ def modify_gemfile
     gem 'guard'
     gem 'guard-rspec'
     gem 'pry', '0.9.12'
-    gem 'pry-byebug'
   end
   # END
   all_done
@@ -24,7 +23,6 @@ def modify_gemfile
     gem 'guard'
     gem 'guard-rspec'
     gem 'pry', '0.9.12'
-    gem 'pry-byebug'
   end
   # END
   all_done
